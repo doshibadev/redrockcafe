@@ -1,17 +1,1017 @@
 ---
+const highlights = [
+  "Terrasse face à la mer",
+  "Cocktails, bières et tapas",
+  "Ambiance vivante du matin au soir",
+];
 
+const moments = [
+  {
+    title: "Le matin, en douceur",
+    text: "Café, croissant, chocolat chaud ou galette face à la plage: l'adresse se vit aussi au calme, avec la digue qui s'éveille juste devant vous.",
+  },
+  {
+    title: "L'après-midi, côté terrasse",
+    text: "On s'installe pour un verre, une bière bien fraîche ou une pause ensoleillée entre deux balades. La vue mer fait le reste.",
+  },
+  {
+    title: "Le soir, place à l'apéro",
+    text: "Planches à partager, tapas, cocktails signature et atmosphère chaleureuse: Red Rock prend tout son sens quand la lumière descend sur Malo.",
+  },
+];
+
+const menuCards = [
+  {
+    eyebrow: "Cocktails signature",
+    title: "Aperol Spritz, Virgin Mojito Red, Irish Coffee, Red Rock Cocktail",
+    text: "Une carte qui mélange classiques bien faits, envies fraîches et recettes maison à savourer en terrasse ou côté bar.",
+  },
+  {
+    eyebrow: "À partager",
+    title: "Tapas et planches qui donnent envie de rester",
+    text: "Planche mixte, charcuterie, planche de chèvre, planche mexicaine: l'esprit apéro est partout, sans en faire trop.",
+  },
+  {
+    eyebrow: "Côté pub",
+    title: "Bières, café, boissons chaudes et petits plaisirs",
+    text: "Du café du matin à la bière du début de soirée, le lieu garde la même promesse: être simple, bon et vivant.",
+  },
+];
+
+const hours = [
+  ["Lundi à mercredi", "09:00 - 01:30"],
+  ["Jeudi à samedi", "09:00 - 02:00"],
+  ["Dimanche", "09:00 - 01:30"],
+];
+
+const gallery = [
+  {
+    src: "/images/malo-beach.jpg",
+    alt: "La digue et la plage de Malo-les-Bains face à la mer",
+    label: "Vue digue & plage",
+  },
+  {
+    src: "/images/red-rock-cocktail.jpg",
+    alt: "Cocktail sombre servi face à la mer",
+    label: "Cocktails maison",
+  },
+  {
+    src: "/images/planche-charcuterie.jpg",
+    alt: "Planche de charcuterie et fromage à partager avec du vin blanc",
+    label: "Planches à partager",
+  },
+  {
+    src: "/images/cafe-croissant.jpg",
+    alt: "Café et croissant sur une table de café",
+    label: "Du matin au soir",
+  },
+  {
+    src: "/images/interieur-bar.jpg",
+    alt: "Intérieur chaleureux d'un bar avec éclairage tamisé",
+    label: "Intérieur chaleureux",
+  },
+  {
+    src: "/images/ambiance-sunset.jpg",
+    alt: "Ambiance conviviale au coucher du soleil sur la plage",
+    label: "Apéro sunset",
+  },
+];
+
+const socials = [
+  {
+    name: "Tripadvisor",
+    href: "https://www.tripadvisor.com/Restaurant_Review-g187177-d21151352-Reviews-Red_Rock_Cafe-Dunkirk_Nord_Hauts_de_France.html",
+  },
+];
+
+const pageTitle = "Red Rock Café | Bar, cocktails, tapas face à la mer à Malo-les-Bains";
+const pageDescription =
+  "Cocktails, bières, tapas et ambiance face à la mer à Malo-les-Bains. Red Rock Café vous accueille sur la digue à Dunkerque, du café du matin à l'apéro du soir.";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="theme-color" content="#a33f33" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/malo-beach.jpg" />
+    <meta property="og:locale" content="fr_FR" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BarOrPub",
+      name: "Red Rock Café",
+      image: "/images/malo-beach.jpg",
+      telephone: "+33 3 59 67 58 42",
+      email: "redrockcafe.dunkerque@gmail.com",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "34-35 Digue de Mer",
+        postalCode: "59240",
+        addressLocality: "Dunkerque",
+        addressCountry: "FR",
+      },
+      servesCuisine: ["Tapas", "Café", "Cocktails", "Pub"],
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday"],
+          opens: "09:00",
+          closes: "01:30",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Thursday", "Friday", "Saturday"],
+          opens: "09:00",
+          closes: "02:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Sunday",
+          opens: "09:00",
+          closes: "01:30",
+        },
+      ],
+    })}></script>
+    <style>
+      :root {
+        --bg: #120f0d;
+        --panel: rgba(31, 22, 19, 0.84);
+        --panel-strong: rgba(23, 16, 14, 0.94);
+        --text: #f5eadf;
+        --muted: rgba(245, 234, 223, 0.72);
+        --sand: #e3cfb3;
+        --cream: #f8efe3;
+        --brick: #a33f33;
+        --bordeaux: #6d1f24;
+        --gold: #d7a365;
+        --line: rgba(255, 244, 232, 0.12);
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+        --radius-xl: 32px;
+        --radius-lg: 24px;
+        --radius-md: 18px;
+        --max: 1200px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Manrope", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top, rgba(180, 80, 55, 0.22), transparent 30%),
+          linear-gradient(180deg, #201715 0%, #120f0d 28%, #17110f 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .page-shell {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .page-shell::before,
+      .page-shell::after {
+        content: "";
+        position: fixed;
+        inset: auto;
+        width: 26rem;
+        height: 26rem;
+        border-radius: 999px;
+        filter: blur(80px);
+        pointer-events: none;
+        opacity: 0.36;
+        z-index: 0;
+      }
+
+      .page-shell::before {
+        top: -8rem;
+        left: -10rem;
+        background: rgba(163, 63, 51, 0.42);
+      }
+
+      .page-shell::after {
+        right: -8rem;
+        top: 20rem;
+        background: rgba(215, 163, 101, 0.16);
+      }
+
+      .container {
+        width: min(calc(100% - 2rem), var(--max));
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(20px);
+        background: linear-gradient(180deg, rgba(12, 10, 10, 0.75), rgba(12, 10, 10, 0.32));
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+      }
+
+      .brand-mark {
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+        color: var(--sand);
+      }
+
+      .brand-name {
+        font-family: "Fraunces", serif;
+        font-size: clamp(1.25rem, 1.1rem + 1vw, 1.7rem);
+      }
+
+      .top-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .button,
+      .button-ghost {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        min-height: 3rem;
+        padding: 0.85rem 1.2rem;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-weight: 700;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease;
+      }
+
+      .button {
+        background: linear-gradient(135deg, var(--brick), #c25a40);
+        color: white;
+        box-shadow: 0 20px 35px rgba(163, 63, 51, 0.25);
+      }
+
+      .button:hover,
+      .button-ghost:hover {
+        transform: translateY(-2px);
+      }
+
+      .button-ghost {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: var(--line);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 1.25rem;
+        padding: 2rem 0 1.5rem;
+      }
+
+      .hero-copy,
+      .hero-visual {
+        min-height: 40rem;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        position: relative;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-copy {
+        padding: clamp(1.8rem, 2vw, 2.6rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background:
+          linear-gradient(180deg, rgba(17, 12, 11, 0.18) 0%, rgba(17, 12, 11, 0.92) 72%),
+          url("/images/malo-plage.jpg") center/cover;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.55rem 0.85rem;
+        border-radius: 999px;
+        background: rgba(248, 239, 227, 0.12);
+        border: 1px solid rgba(248, 239, 227, 0.18);
+        color: var(--cream);
+        font-size: 0.84rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero h1,
+      h2,
+      h3 {
+        font-family: "Fraunces", serif;
+        margin: 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 8vw, 6rem);
+        line-height: 0.95;
+        max-width: 10ch;
+      }
+
+      .hero-lead {
+        max-width: 34rem;
+        margin: 1.2rem 0 0;
+        font-size: clamp(1.05rem, 0.96rem + 0.4vw, 1.25rem);
+        line-height: 1.65;
+        color: var(--cream);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-top: 1.8rem;
+      }
+
+      .hero-notes {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin-top: 2rem;
+      }
+
+      .hero-note {
+        padding: 1rem;
+        border-radius: 1.2rem;
+        background: rgba(11, 9, 9, 0.34);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .hero-note strong {
+        display: block;
+        font-size: 0.95rem;
+      }
+
+      .hero-note span {
+        display: block;
+        margin-top: 0.35rem;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }
+
+      .hero-visual {
+        background: var(--panel-strong);
+      }
+
+      .hero-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-card {
+        position: absolute;
+        left: 1.1rem;
+        right: 1.1rem;
+        bottom: 1.1rem;
+        display: grid;
+        gap: 0.9rem;
+        padding: 1.15rem;
+        border-radius: 1.4rem;
+        background: rgba(17, 12, 11, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(18px);
+      }
+
+      .hero-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+      }
+
+      .badge {
+        padding: 0.55rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--cream);
+        font-size: 0.83rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 1rem;
+        align-items: end;
+        margin-bottom: 2rem;
+      }
+
+      .section-head h2 {
+        font-size: clamp(2rem, 1.4rem + 2vw, 3.6rem);
+        line-height: 1;
+      }
+
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.04rem;
+        line-height: 1.7;
+        max-width: 42rem;
+      }
+
+      .story-grid,
+      .menu-grid,
+      .info-grid,
+      .trust-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .story-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+
+      .story-image {
+        min-height: 28rem;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .story-image img,
+      .gallery-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .story-panel {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .card {
+        border-radius: var(--radius-lg);
+        padding: 1.4rem;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .card p,
+      .card li {
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .menu-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 18rem;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent),
+          rgba(29, 20, 18, 0.92);
+      }
+
+      .menu-card strong {
+        color: var(--sand);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 0.76rem;
+      }
+
+      .menu-card h3 {
+        margin-top: 0.8rem;
+        font-size: 1.55rem;
+        line-height: 1.2;
+      }
+
+      .menu-card p {
+        margin-top: 1rem;
+      }
+
+      .moments {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .moment-card {
+        min-height: 15rem;
+      }
+
+      .moment-card span {
+        display: inline-block;
+        margin-bottom: 1rem;
+        color: var(--gold);
+        font-weight: 700;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .gallery-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius-lg);
+        min-height: 15rem;
+        box-shadow: var(--shadow);
+      }
+
+      .gallery-card:nth-child(1) {
+        grid-column: span 7;
+        min-height: 24rem;
+      }
+
+      .gallery-card:nth-child(2) {
+        grid-column: span 5;
+      }
+
+      .gallery-card:nth-child(3),
+      .gallery-card:nth-child(4),
+      .gallery-card:nth-child(5),
+      .gallery-card:nth-child(6) {
+        grid-column: span 3;
+      }
+
+      .gallery-label {
+        position: absolute;
+        left: 1rem;
+        bottom: 1rem;
+        padding: 0.55rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(17, 12, 11, 0.78);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 0.82rem;
+      }
+
+      .info-grid {
+        grid-template-columns: 0.95fr 1.05fr;
+      }
+
+      .info-stack {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .address {
+        font-size: 1.15rem;
+        line-height: 1.6;
+      }
+
+      .hours {
+        display: grid;
+        gap: 0.85rem;
+        margin-top: 1.4rem;
+      }
+
+      .hours-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-bottom: 0.85rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hours-row span:last-child {
+        color: var(--cream);
+        font-weight: 700;
+      }
+
+      .map-frame {
+        min-height: 100%;
+        overflow: hidden;
+        position: relative;
+        padding: 0;
+      }
+
+      .map-frame iframe {
+        display: block;
+        width: 100%;
+        min-height: 100%;
+        border: 0;
+        filter: grayscale(0.15) contrast(1.1) saturate(0.95);
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .trust-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.4rem;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2.8rem;
+        padding: 0.75rem 1rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--line);
+      }
+
+      footer {
+        padding: 0 0 3rem;
+      }
+
+      .footer-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.3rem 1.5rem;
+      }
+
+      .footer-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      @media (max-width: 1080px) {
+        .hero,
+        .story-grid,
+        .section-head,
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .menu-grid,
+        .moments,
+        .trust-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .hero-copy,
+        .hero-visual {
+          min-height: 34rem;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .container {
+          width: min(calc(100% - 1rem), var(--max));
+        }
+
+        .topbar,
+        .top-actions,
+        .hero-notes,
+        .menu-grid,
+        .moments,
+        .trust-grid,
+        .footer-card {
+          grid-template-columns: 1fr;
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .topbar {
+          position: static;
+        }
+
+        .button,
+        .button-ghost {
+          width: 100%;
+        }
+
+        .hero h1 {
+          max-width: 8ch;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-card,
+        .gallery-card:nth-child(1),
+        .gallery-card:nth-child(2),
+        .gallery-card:nth-child(3),
+        .gallery-card:nth-child(4),
+        .gallery-card:nth-child(5),
+        .gallery-card:nth-child(6) {
+          grid-column: auto;
+          min-height: 18rem;
+        }
+
+        .hours-row {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="container">
+        <header class="topbar">
+          <div class="brand">
+            <span class="brand-mark">Malo-les-Bains • Dunkerque</span>
+            <a class="brand-name" href="#top">Red Rock Café</a>
+          </div>
+          <div class="top-actions">
+            <a class="button-ghost" href="https://maps.google.com/?q=34-35+Digue+de+Mer,+59240+Dunkerque" target="_blank" rel="noreferrer">
+              Voir l’adresse
+            </a>
+            <a class="button" href="tel:+33359675842">Appeler</a>
+          </div>
+        </header>
+
+        <main id="top">
+          <section class="hero">
+            <div class="hero-copy">
+              <div class="eyebrow">Cocktails, tapas et ambiance face à la mer</div>
+              <h1>Le spot vivant de la digue à Malo.</h1>
+              <p class="hero-lead">
+                Un verre en terrasse, une planche à partager, un café face à la plage ou un apéro qui s'étire au coucher du soleil:
+                Red Rock Café vous accueille du matin jusqu'à tard, dans une ambiance conviviale et vraiment bord de mer.
+              </p>
+              <div class="hero-actions">
+                <a class="button" href="tel:+33359675842">Venir boire un verre</a>
+                <a class="button-ghost" href="#carte">Découvrir l’ambiance</a>
+              </div>
+              <div class="hero-notes">
+                {highlights.map((item) => (
+                  <div class="hero-note">
+                    <strong>{item}</strong>
+                    <span>Une adresse locale où l'on passe facilement du café du matin à l'apéro du soir.</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <img src="/images/red-rock-cocktail.jpg" alt="Cocktail servi face à la mer dans une ambiance beach bar" />
+              <div class="hero-card">
+                <h2>Terrasse, vue mer, musique et bons verres.</h2>
+                <p>
+                  Face à la digue, l'ambiance change avec l'heure mais garde le même esprit: accessible, chaleureux, vivant et toujours agréable pour s'installer.
+                </p>
+                <div class="badge-row">
+                  <span class="badge">Cocktails</span>
+                  <span class="badge">Bières</span>
+                  <span class="badge">Tapas</span>
+                  <span class="badge">Planches</span>
+                  <span class="badge">Vue plage</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Une vraie adresse de digue.</h2>
+              <p>
+                Red Rock Café se vit comme un lieu simple à aimer: une grande terrasse face à la mer, une ambiance qui reste animée sans devenir tape-à-l'œil,
+                et ce petit côté Malo-les-Bains qui donne envie de revenir pour un verre, un café ou un apéro improvisé.
+              </p>
+            </div>
+            <div class="story-grid">
+              <div class="story-image">
+                <img src="/images/malo-beach.jpg" alt="Plage et digue de Malo-les-Bains au bord de la mer" />
+              </div>
+              <div class="story-panel">
+                <article class="card">
+                  <h3>Terrasse ouverte sur la plage</h3>
+                  <p>
+                    Ici, la mer n'est pas un décor lointain. La digue, la lumière, le passage, les amis qui se retrouvent: tout participe à cette atmosphère
+                    de beach bar local, décontracté mais soigné.
+                  </p>
+                </article>
+                <article class="card">
+                  <h3>Convivial, du déjeuner tardif à la première tournée</h3>
+                  <p>
+                    On vient pour un café, on reste pour une bière, puis pour une planche. L'adresse accompagne naturellement les rythmes de la journée,
+                    avec cette sensation de vacances qui reste bien ancrée à Malo.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="carte">
+            <div class="section-head">
+              <h2>Cocktails, bières et tapas.</h2>
+              <p>
+                L'esprit Red Rock tient dans un apéro bien mené: de bons verres, des planches qui se partagent facilement, un service qui garde le sourire
+                et une ambiance qui fait aussi bien l'affaire en journée qu'en début de soirée.
+              </p>
+            </div>
+            <div class="menu-grid">
+              {menuCards.map((card) => (
+                <article class="card menu-card">
+                  <div>
+                    <strong>{card.eyebrow}</strong>
+                    <h3>{card.title}</h3>
+                    <p>{card.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Du matin au soir.</h2>
+              <p>
+                Café-croissant le matin, pause terrasse dans l'après-midi, cocktails et planches quand l'heure de l'apéro arrive: la journée change,
+                le plaisir de s'installer reste le même.
+              </p>
+            </div>
+            <div class="moments">
+              {moments.map((moment, index) => (
+                <article class="card moment-card">
+                  <span>0{index + 1}</span>
+                  <h3>{moment.title}</h3>
+                  <p>{moment.text}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>L’atmosphère Red Rock.</h2>
+              <p>
+                Vue plage, cocktails, planches à partager, intérieur chaleureux et ambiance sunset: de quoi sentir le lieu avant même de poser un pied sur la digue.
+              </p>
+            </div>
+            <div class="gallery-grid">
+              {gallery.map((image) => (
+                <figure class="gallery-card">
+                  <img src={image.src} alt={image.alt} loading="lazy" />
+                  <figcaption class="gallery-label">{image.label}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Infos pratiques.</h2>
+              <p>
+                En plein sur la digue de Malo-les-Bains, face à la mer. Facile pour un café au passage, un verre entre amis ou une vraie parenthèse apéro avec vue.
+              </p>
+            </div>
+            <div class="info-grid">
+              <div class="info-stack">
+                <article class="card">
+                  <h3>Red Rock Café</h3>
+                  <p class="address">
+                    34-35 Digue de Mer<br />
+                    59240 Dunkerque<br />
+                    Malo-les-Bains
+                  </p>
+                  <p>
+                    <a href="tel:+33359675842">03 59 67 58 42</a><br />
+                    <a href="mailto:redrockcafe.dunkerque@gmail.com">redrockcafe.dunkerque@gmail.com</a>
+                  </p>
+                  <div class="hero-actions">
+                    <a class="button" href="https://maps.google.com/?q=34-35+Digue+de+Mer,+59240+Dunkerque" target="_blank" rel="noreferrer">
+                      Itinéraire
+                    </a>
+                    <a class="button-ghost" href="tel:+33359675842">Appel direct</a>
+                  </div>
+                </article>
+
+                <article class="card">
+                  <h3>Horaires</h3>
+                  <div class="hours">
+                    {hours.map(([day, time]) => (
+                      <div class="hours-row">
+                        <span>{day}</span>
+                        <span>{time}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p>Horaires communiqués à titre indicatif, du matin jusqu'à tard le soir selon l'affluence et la saison.</p>
+                </article>
+              </div>
+
+              <article class="card map-frame">
+                <iframe
+                  title="Carte Red Rock Café à Malo-les-Bains"
+                  src="https://www.google.com/maps?q=34-35%20Digue%20de%20Mer%2059240%20Dunkerque&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </article>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <h2>Une réputation qui se construit sur place.</h2>
+              <p>
+                Le lieu est surtout connu localement pour sa terrasse, sa vue sur la plage, ses cocktails et son ambiance. Sa présence visible passe encore
+                beaucoup par les plateformes et les réseaux, ce qui renforce l'impression d'une adresse déjà bien installée sur la digue.
+              </p>
+            </div>
+            <div class="trust-grid">
+              <article class="card trust-card">
+                <h3>Un spot qui revient souvent dans les bonnes adresses du coin</h3>
+                <p>
+                  On le cite volontiers pour la terrasse, le cadre et l'ambiance générale. C'est le genre d'endroit où l'on propose facilement de se retrouver.
+                </p>
+              </article>
+              <article class="card trust-card">
+                <h3>Une expérience simple, locale et vivante</h3>
+                <p>
+                  Sans discours trop travaillé, l'adresse inspire confiance par sa régularité: on y passe pour boire un verre, partager une planche et profiter du front de mer.
+                </p>
+              </article>
+              <article class="card trust-card">
+                <h3>Suivre l'ambiance du moment</h3>
+                <p>
+                  Les actualités et photos du lieu se retrouvent surtout sur les plateformes où l'établissement est déjà bien visible.
+                </p>
+                <div class="socials">
+                  <span class="social-link">Facebook</span>
+                  <span class="social-link">Instagram</span>
+                  {socials.map((social) => (
+                    <a class="social-link" href={social.href} target="_blank" rel="noreferrer">{social.name}</a>
+                  ))}
+                </div>
+              </article>
+            </div>
+          </section>
+        </main>
+
+        <footer>
+          <div class="card footer-card">
+            <div>
+              <h3>Venez profiter d'un verre, d'une planche et de l'ambiance Red Rock.</h3>
+              <p>Face à la mer, sur la digue de Malo-les-Bains.</p>
+            </div>
+            <a class="button" href="tel:+33359675842">Réserver votre moment</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
 </html>
